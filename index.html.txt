@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanye West Music Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Kanye West Music Tracker</h1>
+            <p>Track Kanye's released and unreleased albums.</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="filter">
+            <button onclick="filterAlbums('all')">All Albums</button>
+            <button onclick="filterAlbums('released')">Released Albums</button>
+            <button onclick="filterAlbums('unreleased')">Unreleased Albums</button>
+        </section>
+        
+        <section id="albums-list" class="albums-list">
+            <!-- Album Entries will go here -->
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>Made with ❤️ for Kanye fans.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
