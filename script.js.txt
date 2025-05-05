@@ -1,0 +1,76 @@
+// Sample data for Kanye's albums (both released and unreleased)
+const albums = [
+    {
+        name: "The College Dropout",
+        releaseDate: "2004-02-10",
+        status: "released",
+        description: "Kanye's debut album, blending hip hop with soul, gospel, and orchestral influences.",
+        tracks: ["We Don't Care", "Graduation Day", "All Falls Down", "Spaceship"]
+    },
+    {
+        name: "Yandhi",
+        releaseDate: "TBD",
+        status: "unreleased",
+        description: "An album Kanye was working on in 2018, which was never officially released.",
+        tracks: ["I Love It", "New Body", "Hurricane"]
+    },
+    {
+        name: "My Beautiful Dark Twisted Fantasy",
+        releaseDate: "2010-11-22",
+        status: "released",
+        description: "A critically acclaimed album blending rap, rock, and orchestral music, showcasing Kanye's artistic vision.",
+        tracks: ["Power", "Runaway", "All of the Lights", "Monster"]
+    },
+    {
+        name: "Donda",
+        releaseDate: "2021-08-29",
+        status: "released",
+        description: "Kanye's 10th studio album, named after his late mother, filled with themes of grief, faith, and redemption.",
+        tracks: ["Hurricane", "Jail", "Praise God"]
+    },
+    {
+        name: "Good Ass Job",
+        releaseDate: "TBD",
+        status: "unreleased",
+        description: "An album Kanye teased that has never been officially released, though many tracks surfaced online.",
+        tracks: ["Coolin' It", "Drive Slow", "Good Ass Job"]
+    }
+];
+
+// Function to display albums
+function displayAlbums(filteredAlbums) {
+    const albumListContainer = document.getElementById("albums-list");
+    albumListContainer.innerHTML = ''; // Clear previous content
+
+    filteredAlbums.forEach(album => {
+        const albumCard = document.createElement('div');
+        albumCard.classList.add('album-card');
+        albumCard.innerHTML = `
+            <h2>${album.name}</h2>
+            <p><strong>Release Date:</strong> ${album.releaseDate}</p>
+            <p><strong>Status:</strong> ${album.status.charAt(0).toUpperCase() + album.status.slice(1)}</p>
+            <p>${album.description}</p>
+            <h3>Tracks:</h3>
+            <ul>
+                ${album.tracks.map(track => `<li>${track}</li>`).join('')}
+            </ul>
+        `;
+        albumListContainer.appendChild(albumCard);
+    });
+}
+
+// Function to filter albums by status
+function filterAlbums(status) {
+    let filteredAlbums;
+
+    if (status === 'all') {
+        filteredAlbums = albums;
+    } else {
+        filteredAlbums = albums.filter(album => album.status === status);
+    }
+
+    displayAlbums(filteredAlbums);
+}
+
+// Initial display of all albums
+displayAlbums(albums);
